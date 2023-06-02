@@ -9,8 +9,11 @@ public class Constants {
     public static final Long CLIENTE_ROL_ID  = 1L;
     public static final Long EMPLEADO_ROL_ID = 2L;
     public static final Long PROPIETARIO_ROL_ID = 3l;
+    public static final Long ADMINISTRADOR_ROL_ID = 4l;
 
     public static final String CORREO_MAL_FORMULADO_EXCEPTION = "Correo mal formulado, por favor ingrese un correo valido.";
+    public static final String CONTRASEÑA_ERRADA = "la contraseña ingresada esta errada, por favor valide nuevamente .";
+
     public static final String DOCUMENTO_MAL_FORMULADO_EXCEPTION = "El numero de documento no es de un formato valido.";
     public static final String CELULAR_MAL_FORMULADO_EXCEPTION = "El numero de celular no es correcto.";
     public static final String CELULAR_LONGITUD_EXCEPTION = "El numero de celular debe tener entre 8 y 13 caracteres contando el caracter '+'.";

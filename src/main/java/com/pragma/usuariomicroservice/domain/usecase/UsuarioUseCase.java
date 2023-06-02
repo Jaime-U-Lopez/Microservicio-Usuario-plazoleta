@@ -28,9 +28,9 @@ public class UsuarioUseCase implements IUsuarioServicePort {
 
     @Override
     public void guardarUser(Usuario usuario, TipoRol rol) {
-        ValidacionesUsuario validaciones = new ValidacionesUsuario();
-        validaciones.validarFechaNacimientoFormato(usuario.getFechaNacimiento());
-        validaciones.validadFechaNacimiento(usuario.getFechaNacimiento());
+
+        ValidacionesUsuario.validadFechaNacimiento(usuario.getFechaNacimiento());
+        ValidacionesUsuario.validarPasswordEncritado(usuario.getPassword());
 
         Long rolactual= validarRol(rol);
         Optional<RolEntity> rolEntity = rolRepository.findById(rolactual);
@@ -44,11 +44,13 @@ public class UsuarioUseCase implements IUsuarioServicePort {
 
     public  Long  validarRol(TipoRol Rol){
 
-            if(Rol.equals(TipoRol.PROPIETARIO) || Rol.equals(TipoRol.CLIENTE)|| Rol.equals(TipoRol.EMPLEADO) ){
+            if(Rol.equals(TipoRol.ADMINISTRADOR) ||  Rol.equals(TipoRol.PROPIETARIO) || Rol.equals(TipoRol.CLIENTE)|| Rol.equals(TipoRol.EMPLEADO) ){
                 switch(Rol){
 
                     case PROPIETARIO:
                         return Constants.PROPIETARIO_ROL_ID;
+                    case ADMINISTRADOR:
+                        return Constants.ADMINISTRADOR_ROL_ID;
                     case CLIENTE:
                         return Constants.CLIENTE_ROL_ID;
                     case EMPLEADO:

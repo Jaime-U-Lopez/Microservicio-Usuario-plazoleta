@@ -41,7 +41,7 @@ public class ValidacionesGenerales {
         return matcher.find();
     }
 
-    protected LocalDate stringToDate(String fecha) throws DateTimeParseException{
+    protected static LocalDate stringToDate(String fecha) throws DateTimeParseException{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return LocalDate.parse(fecha,formatter);
     }
